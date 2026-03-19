@@ -2,7 +2,7 @@
 
 SunoのStyle・Lyrics・ジャンル・ムードなどをもとに、曲タイトルを生成できるツール
 
-Suno music title generator based on Style, Lyrics, and mood inputs
+*English: Suno music title generator based on Style, Lyrics, and mood inputs*
 
 ## ▶ 今すぐ使う
 https://highkun.github.io/Suno_Title_Maker/
