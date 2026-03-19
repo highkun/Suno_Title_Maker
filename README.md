@@ -21,7 +21,7 @@ https://highkun.github.io/Suno_Title_Maker/
 4. タイトルが生成されます
 
 ## ヒント
-※StyleとLyricsの両方を入力することで、より具体的な楽曲イメージに基づいたタイトルが生成されます
+※StyleとLyricsの両方を入力することで、より具体的な楽曲イメージに基づいたタイトルが生成されます<br>
 ※Using both Style and Lyrics improves title accuracy
 
 ## 注意
