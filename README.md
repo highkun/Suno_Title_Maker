@@ -7,7 +7,7 @@ https://highkun.github.io/Suno_Title_Maker/
 
 ## 特徴
 - StyleやLyricsからタイトルを生成
-- ジャンル・ムード・シーン入力対応
+- ジャンル・ムード・シーン入力に対応
 - 自由入力で柔軟に生成可能
 - ブラウザで動作
 - インストール不要
@@ -16,7 +16,10 @@ https://highkun.github.io/Suno_Title_Maker/
 1. APIキーを入力
 2. Style / Lyrics / ジャンルなどを入力
 3. Generateを押す
-4. タイトルが生成される
+4. タイトルが生成されます
+
+## ヒント
+※StyleとLyricsの両方を入力することで、より具体的な楽曲イメージに基づいたタイトルが生成されます
 
 ## 注意
 ※APIキーはブラウザ内に保存されます  
