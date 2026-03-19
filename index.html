@@ -32,6 +32,7 @@ button:focus{outline:none}
 
   .chip{background:var(--chip);border:1px solid var(--line)}
   .chip.active{background:var(--primary)}
+  #generateBtn{font-weight:600;padding:12px 18px;}
   .card{background:var(--panel);padding:16px;border-radius:14px;margin-bottom:16px}
   .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
   .muted{color:var(--muted);font-size:.92rem}
@@ -58,19 +59,21 @@ button:focus{outline:none}
 
 <div class="card">
   <h3 style="margin-top:0">入力</h3>
-  <textarea id="input" placeholder="例：lofi / 夜 / 作業用 / ピアノ / 切ない（プロンプト・歌詞・ジャンル・ムードなど自由入力）"></textarea>
-  <div class="muted">プロンプト、歌詞、ジャンル、ムード、シーン、楽器などを自由に入力できます。</div>
+  <textarea id="input" placeholder="例：lofi 夜 作業用 ピアノ 切ない（プロンプト・歌詞・ジャンル・ムードなど自由入力）"></textarea>
+  <div class="muted">プロンプト、歌詞、ジャンル、ムード、シーン、楽器などを自由に入力できます。<br><span class="muted">ヒント：歌詞や雰囲気ワードを組み合わせると精度が上がります</span></div>
 </div>
 
 <div class="card">
   <h3 style="margin-top:0">生成</h3>
   <div class="row">
     <button id="generateBtn" type="button">Generate</button>
-    <button id="sampleBtn" class="ghost" type="button">サンプル入力</button>
+    <button id="sampleBtn" class="ghost" type="button">サンプルA</button>
+    <button id="sampleBtnB" class="ghost" type="button">サンプルB</button>
     <button id="clearBtn" class="ghost" type="button">Clear</button>
     <button id="helpBtn" class="ghost" type="button">？ 設定ヘルプ</button>
   </div>
-  <div id="status" class="status">待機中</div>
+  <div style="font-size:12px;color:#a7b4d6;margin-top:2px;">※ サンプルAはライト入力例 / サンプルBはSuno形式＋Lyricsの記入例です</div>
+  <div id="status" class="status">入力して Generate を押すとタイトルが生成されます</div>
   <div id="helpPanel" class="help">
     <strong>高品質モード</strong><br>
     → タイトルを2回生成して精度を上げます<br><br>
@@ -120,7 +123,7 @@ button:focus{outline:none}
 <div class="card">
   <h3 style="margin-top:0">結果</h3>
   <div class="row">
-    <button id="copyBtn" class="ghost" type="button">全コピー</button>
+    <button id="copyBtn" class="ghost" type="button">タイトルをコピー</button>
   </div>
   <div id="result"><div class="muted">まだ生成されていません</div></div>
 </div>
@@ -322,7 +325,7 @@ async function testConnection(){
   }
 }
 function fillSample(){
-  document.getElementById("input").value = "lofi / 夜 / 作業用 / ピアノ / 切ない";
+  document.getElementById("input").value = "lofi 夜 作業用 ピアノ 切ない";
   document.getElementById("quality").checked = false;
   document.getElementById("market").value = "spotify";
   document.getElementById("length").value = "short";
@@ -331,6 +334,23 @@ function fillSample(){
   setLang("ja");
   setStatus("サンプル入力を反映しました。");
 }
+
+function fillSampleB(){
+  document.getElementById("input").value = `EDM, Future Bass, Energetic, Bright, Festival, Upbeat, Female Vocal
+
+光が弾けるステージの上で
+心臓の鼓動が音に変わる
+夜が一瞬で輝き出す
+この瞬間が永遠になる`;
+  document.getElementById("quality").checked = false;
+  document.getElementById("market").value = "off";
+  document.getElementById("length").value = "auto";
+  document.getElementById("mass").checked = false;
+  document.getElementById("antiAiMode").checked = false;
+  setLang("ja");
+  setStatus("サンプルBを反映しました。");
+}
+
 function clearAll(){
   document.getElementById("input").value = "";
   document.getElementById("result").innerHTML = '<div class="muted">まだ生成されていません</div>';
@@ -391,6 +411,7 @@ document.getElementById("helpBtn").addEventListener("click", ()=>{
 document.getElementById("generateBtn").addEventListener("click", generate);
 document.getElementById("testBtn").addEventListener("click", testConnection);
 document.getElementById("sampleBtn").addEventListener("click", fillSample);
+document.getElementById("sampleBtnB").addEventListener("click", fillSampleB);
 document.getElementById("clearBtn").addEventListener("click", clearAll);
 document.getElementById("clearKeyBtn").addEventListener("click", clearKey);
 document.getElementById("copyBtn").addEventListener("click", copyAll);
